@@ -1,7 +1,8 @@
-/**
- * Media Queries
- *******************************************
- */
-.main__title {
+.main h2 {
   font-size: 30px;
+}
+
+footer {
+  align-items: flex-start;
+  flex-direction: column;
 }
