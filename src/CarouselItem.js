@@ -5,29 +5,29 @@ const relativeDate = dateStr => moment(dateStr, 'YYYY-MM-DD').fromNow()
 
 const Controls = ({ slug, youtubeVideoId }) =>
   h(
-    'div',
+    'div.carousel-item_media',
     h(
-      'a',
+      'a.media-play',
       {
         href: `https://www.youtube.com/watch?v=${youtubeVideoId}`,
         title: 'Watch trailer',
         target: '_blank',
         rel: 'noreferrer',
       },
-      h('img', {
+      h('img.media-image', {
         src: 'assets/play-icon.png',
         alt: 'Play',
       })
     ),
     h(
-      'a',
+      'a.media-play',
       {
         href: `https://kitsu.io/explore/anime/${slug}`,
         title: 'See more',
         target: '_blank',
         rel: 'noreferrer',
       },
-      h('img', {
+      h('img.media-image', {
         src: 'assets/plus-icon.png',
         alt: 'More info',
       })
@@ -44,13 +44,13 @@ const CarouselItem = ({
 }) =>
   h(
     'div.carousel-item',
-    h('img', { src: imageUrl, alt: '' }),
+    h('img.carousel-item_image', { src: imageUrl, alt: '' }),
     h(
       'div',
       Controls({ slug, youtubeVideoId }),
-      h('p', title),
-      h('p', subtitle),
-      h('p', `Released: ${relativeDate(startDate)}`)
+      h('p.carousel-item_title', title),
+      h('p.carousel-item_subtitle', subtitle),
+      h('p.carousel-item_release', `Released: ${relativeDate(startDate)}`)
     )
   )
 

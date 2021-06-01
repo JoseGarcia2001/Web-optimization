@@ -189,6 +189,7 @@ footer a:hover {
 }
 
 .carousel-item {
+  will-change: transform;
   border-radius: 20px;
   position: relative;
   display: inline-block;
@@ -199,23 +200,39 @@ footer a:hover {
   cursor: pointer;
   transition: 450ms all;
   transform-origin: center left;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
+
+.carousel-item::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  opacity: 0.4;
+  transition: 450ms all;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+}
+
 /* Change opacity to all items but current */
 .carousel > div:hover .carousel-item:not(:hover) {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 /* Scale up current */
 .carousel-item:hover {
   transform: scale(1.5);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
-}
-/* Move subsecuent item */
-.carousel-item:hover + .carousel-item {
-  margin-left: 100px;
 }
 
-.carousel-item > img {
+.carousel-item:hover:before {
+  opacity: 1;
+}
+/* Move subsecuent item */
+.carousel-item:hover ~ .carousel-item {
+  transform: translateX(100px);
+}
+
+.carousel-item_image {
   width: 200px;
   height: 250px;
   object-fit: cover;
@@ -249,23 +266,23 @@ footer a:hover {
   opacity: 1;
 }
 
-.carousel-item > div > div a > img {
+.media-image {
   width: 20px;
 }
 
 /* Title */
-.carousel-item > div > p:nth-of-type(1) {
+.carousel-item_title {
   color: white;
   margin: 5px 0px 0px 0px;
 }
 /* Subtitle */
-.carousel-item > div > p:nth-of-type(2) {
+.carousel-item_subtitle {
   color: white;
   font-size: 7px;
   margin: 3px 0px;
 }
 /* Date */
-.carousel-item > div > p:nth-of-type(3) {
+.carousel-item_release {
   color: white;
   font-size: 6px;
   margin: 0px;

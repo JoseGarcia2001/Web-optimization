@@ -11,9 +11,6 @@ const config = {
     publicPath: '/dist',
     filename: 'bundle.js',
   },
-  devServer: {
-    contentBase: '.',
-  },
 }
 
 module.exports = config
