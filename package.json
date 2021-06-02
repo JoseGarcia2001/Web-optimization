@@ -5,7 +5,7 @@
   "author": "@jonalvarezz",
   "scripts": {
     "start": "webpack --watch --config webpack.config.js",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --open",
     "build": "webpack"
   },
   "prettier": {
